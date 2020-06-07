@@ -129,6 +129,48 @@ class RestaurantDetailViewController: UIViewController, UITableViewDataSource, U
     let newReviewReference = reviewsCollection.document()
 
     // Writing data in a transaction
+    let firestore = Firestore.firestore()
+    firestore.runTransaction({ (transaction, errorPointer) -> Any? in
+        
+        let restaurantSnapshot: DocumentSnapshot
+        do {
+            try restaurantSnapshot = transaction.getDocument(reference)
+        } catch let error as NSError {
+            errorPointer?.pointee = error
+            return nil
+        }
+        
+        guard let data = restaurantSnapshot.data(),
+            let restaurant = Restaurant(dictionary: data) else {
+            
+            let error = NSError(domain: "FireEatsErrorDomain", code: 0, userInfo: [
+                NSLocalizedDescriptionKey: "Unable to write to restaurant at Firestore path: \(reference.path)"
+            ])
+            errorPointer?.pointee = error
+            return nil
+        }
+        
+        let newAverage = (Float(restaurant.ratingCount) * restaurant.averageRating + Float(review.rating))
+            / Float(restaurant.ratingCount + 1)
+
+        transaction.setData(review.dictionary, forDocument: newReviewReference)
+        transaction.updateData([
+          "numRatings": restaurant.ratingCount + 1,
+          "avgRating": newAverage
+        ], forDocument: reference)
+        return nil
+        
+    }) { (object, error) in
+        if let error = error {
+            print(error)
+        }else {
+            // Pop the review controller on success
+            if self.navigationController?.topViewController?.isKind(of: NewReviewViewController.self) ?? false {
+                self.navigationController?.popViewController(animated: true)
+            }
+        }
+        
+    }
 
   }
 
