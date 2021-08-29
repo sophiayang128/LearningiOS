@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		B9A7FD8926DC2536007F46FA /* Game.swift in Sources */ = {isa = PBXBuildFile; fileRef = B9A7FD8826DC2536007F46FA /* Game.swift */; };
 		B9DFA65A26D744200082F086 /* BullseyeApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = B9DFA65926D744200082F086 /* BullseyeApp.swift */; };
 		B9DFA65C26D744200082F086 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B9DFA65B26D744200082F086 /* ContentView.swift */; };
 		B9DFA65E26D744240082F086 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = B9DFA65D26D744240082F086 /* Assets.xcassets */; };
@@ -33,6 +34,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		B9A7FD8826DC2536007F46FA /* Game.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Game.swift; sourceTree = "<group>"; };
 		B9DFA65626D744200082F086 /* Bullseye.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Bullseye.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		B9DFA65926D744200082F086 /* BullseyeApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BullseyeApp.swift; sourceTree = "<group>"; };
 		B9DFA65B26D744200082F086 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -72,6 +74,32 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		B9A7FD8526DC238C007F46FA /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				B9A7FD8826DC2536007F46FA /* Game.swift */,
+			);
+			path = Models;
+			sourceTree = "<group>";
+		};
+		B9A7FD8626DC239C007F46FA /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				B9DFA65B26D744200082F086 /* ContentView.swift */,
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
+		B9A7FD8726DC23B4007F46FA /* App */ = {
+			isa = PBXGroup;
+			children = (
+				B9DFA65926D744200082F086 /* BullseyeApp.swift */,
+				B9DFA65D26D744240082F086 /* Assets.xcassets */,
+				B9DFA66226D744240082F086 /* Info.plist */,
+			);
+			path = App;
+			sourceTree = "<group>";
+		};
 		B9DFA64D26D7441F0082F086 = {
 			isa = PBXGroup;
 			children = (
@@ -95,10 +123,9 @@
 		B9DFA65826D744200082F086 /* Bullseye */ = {
 			isa = PBXGroup;
 			children = (
-				B9DFA65926D744200082F086 /* BullseyeApp.swift */,
-				B9DFA65B26D744200082F086 /* ContentView.swift */,
-				B9DFA65D26D744240082F086 /* Assets.xcassets */,
-				B9DFA66226D744240082F086 /* Info.plist */,
+				B9A7FD8726DC23B4007F46FA /* App */,
+				B9A7FD8626DC239C007F46FA /* Views */,
+				B9A7FD8526DC238C007F46FA /* Models */,
 				B9DFA65F26D744240082F086 /* Preview Content */,
 			);
 			path = Bullseye;
@@ -260,6 +287,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				B9DFA65C26D744200082F086 /* ContentView.swift in Sources */,
+				B9A7FD8926DC2536007F46FA /* Game.swift in Sources */,
 				B9DFA65A26D744200082F086 /* BullseyeApp.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -421,7 +449,7 @@
 				DEVELOPMENT_ASSET_PATHS = "\"Bullseye/Preview Content\"";
 				DEVELOPMENT_TEAM = 7YYHACLKF6;
 				ENABLE_PREVIEWS = YES;
-				INFOPLIST_FILE = Bullseye/Info.plist;
+				INFOPLIST_FILE = Bullseye/App/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 14.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
@@ -443,7 +471,7 @@
 				DEVELOPMENT_ASSET_PATHS = "\"Bullseye/Preview Content\"";
 				DEVELOPMENT_TEAM = 7YYHACLKF6;
 				ENABLE_PREVIEWS = YES;
-				INFOPLIST_FILE = Bullseye/Info.plist;
+				INFOPLIST_FILE = Bullseye/App/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 14.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
